@@ -1,0 +1,928 @@
+/* //////////////// ####/
+// TODO:
+- bibliography
+- animation of smooth circles on cover page
+- vertical rhythm
+- change background colour between chapters
+- tint of off-present images
+- d3 network graph
+- side-by-side comparison
+- blue dot smaller on scroll; becomes bigger when scrolling stopped for 1-2sec
+- flashing matrix letters underneath
+
+- fix image stretching
+- news images make grey background full width
+*/ //////////////// ####/
+
+$extra-small: 0.7em;
+
+$small: 1.2em;
+$medium: 1.5em;
+$large: 2em;
+$x-large: 3em;
+
+$sans-font: "Agipo Regular";
+$serif-font: "Bradford LL";
+
+$title-special-font: "Agipo";
+
+$clr-caption: #848484;
+$clr-blue: #0719a2;
+$clr-blue-dark: #000a30;
+$clr-blue-opacity: rgba(7, 25, 162, 0.4);
+$clr-grey: hsl(0, 0%, 94%);
+
+$clr-highlight: rgb(255, 255, 255);
+
+$flow-space: 1rem;
+
+/* ////////////// TYPEFACES //////////////*/
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ramabhadra&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@font-face {
+  font-family: "Flaco";
+  src: url("fonts/Flaco-UltraLight.woff2") format("woff2"),
+    url("fonts/Flaco-UltraLight.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Flaco";
+  src: url("fonts/Flaco-UltraLightItalic.woff2") format("woff2"),
+    url("fonts/Flaco-UltraLightItalic.woff") format("woff");
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Flaco";
+  src: url("fonts/Flaco-Heavy.woff2") format("woff2"),
+    url("fonts/Flaco-Heavy.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Flaco";
+  src: url("fonts/Flaco-HeavyItalic.woff2") format("woff2"),
+    url("fonts/Flaco-HeavyItalic.woff") format("woff");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Flaco-Mono";
+  src: url("fonts/Flaco-Mono.woff2") format("woff2"),
+    url("fonts/Flaco-Mono.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Flaco";
+  src: url("fonts/Flaco-ExtraLight.woff2") format("woff2"),
+    url("fonts/Flaco-ExtraLight.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Flaco";
+  src: url("fonts/Flaco-ThinItalic.woff2") format("woff2"),
+    url("fonts/Flaco-ThinItalic.woff") format("woff");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Flaco";
+  src: url("fonts/Flaco-ExtraLightItalic.woff2") format("woff2"),
+    url("fonts/Flaco-ExtraLightItalic.woff") format("woff");
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Flaco";
+  src: url("fonts/Flaco-Regular.woff2") format("woff2"),
+    url("fonts/Flaco-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Flaco";
+  src: url("fonts/Flaco-LightItalic.woff2") format("woff2"),
+    url("fonts/Flaco-LightItalic.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Flaco";
+  src: url("fonts/Flaco-Light.woff2") format("woff2"),
+    url("fonts/Flaco-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Flaco";
+  src: url("fonts/Flaco-Italic.woff2") format("woff2"),
+    url("fonts/Flaco-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Flaco";
+  src: url("fonts/Flaco-MediumItalic.woff2") format("woff2"),
+    url("fonts/Flaco-MediumItalic.woff") format("woff");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Flaco";
+  src: url("fonts/Flaco-Medium.woff2") format("woff2"),
+    url("fonts/Flaco-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Flaco";
+  src: url("fonts/Flaco-Thin.woff2") format("woff2"),
+    url("fonts/Flaco-Thin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Flaco";
+  src: url("fonts/Flaco-Bold.woff2") format("woff2"),
+    url("fonts/Flaco-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Flaco";
+  src: url("fonts/Flaco-ExtraBold.woff2") format("woff2"),
+    url("fonts/Flaco-ExtraBold.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Flaco";
+  src: url("fonts/Flaco-BoldItalic.woff2") format("woff2"),
+    url("fonts/Flaco-BoldItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Flaco";
+  src: url("fonts/Flaco-ExtraBoldItalic.woff2") format("woff2"),
+    url("fonts/Flaco-ExtraBoldItalic.woff") format("woff");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+/// new fonts
+@font-face {
+  font-family: "Agipo Regular";
+  src: url("fonts/Agipo-Regular.woff2") format("woff2"),
+    url("fonts/Agipo-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Agipo";
+  src: url("fonts/Agipo-Italic.woff2") format("woff2"),
+    url("fonts/Agipo-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Agipo";
+  src: url("fonts/Agipo-Bold.woff2") format("woff2"),
+    url("fonts/Agipo-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bradford LL";
+  src: url("fonts/BradfordLL-Regular.woff2") format("woff2"),
+    url("fonts/BradfordLL-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bradford LL";
+  src: url("fonts/BradfordLL-Bold.woff2") format("woff2"),
+    url("fonts/BradfordLL-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bradford LL";
+  src: url("fonts/BradfordLL-Italic.woff2") format("woff2"),
+    url("fonts/BradfordLL-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Redaction 10";
+  src: url("fonts/Redaction10-Bold.woff2") format("woff2"),
+    url("fonts/Redaction10-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Redaction 10";
+  src: url("fonts/Redaction10-Regular.woff2") format("woff2"),
+    url("fonts/Redaction10-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Redaction 100";
+  src: url("fonts/Redaction100-Regular.woff2") format("woff2"),
+    url("fonts/Redaction100-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Redaction 20";
+  src: url("fonts/Redaction20-Bold.woff2") format("woff2"),
+    url("fonts/Redaction20-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Redaction 100";
+  src: url("fonts/Redaction100-Bold.woff2") format("woff2"),
+    url("fonts/Redaction100-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Redaction 70";
+  src: url("fonts/Redaction70-Bold.woff2") format("woff2"),
+    url("fonts/Redaction70-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Redaction 35";
+  src: url("fonts/Redaction35-Regular.woff2") format("woff2"),
+    url("fonts/Redaction35-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Redaction 50";
+  src: url("fonts/Redaction50-Regular.woff2") format("woff2"),
+    url("fonts/Redaction50-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Redaction 50";
+  src: url("fonts/Redaction50-Bold.woff2") format("woff2"),
+    url("fonts/Redaction50-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Redaction 10";
+  src: url("fonts/Redaction10-Italic.woff2") format("woff2"),
+    url("fonts/Redaction10-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Redaction 20";
+  src: url("fonts/Redaction20-Italic.woff2") format("woff2"),
+    url("fonts/Redaction20-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Redaction 70";
+  src: url("fonts/Redaction70-Italic.woff2") format("woff2"),
+    url("fonts/Redaction70-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Redaction 100";
+  src: url("fonts/Redaction100-Italic.woff2") format("woff2"),
+    url("fonts/Redaction100-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Redaction 20";
+  src: url("fonts/Redaction20-Regular.woff2") format("woff2"),
+    url("fonts/Redaction20-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Redaction 35";
+  src: url("fonts/Redaction35-Bold.woff2") format("woff2"),
+    url("fonts/Redaction35-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Redaction 35";
+  src: url("fonts/Redaction35-Italic.woff2") format("woff2"),
+    url("fonts/Redaction35-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Redaction 50";
+  src: url("fonts/Redaction50-Italic.woff2") format("woff2"),
+    url("fonts/Redaction50-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Redaction 70";
+  src: url("fonts/Redaction70-Regular.woff2") format("woff2"),
+    url("fonts/Redaction70-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ////////////// CSS STRUCTURE //////////////*/
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+}
+
+.TOC-button {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: $flow-space;
+  height: $flow-space;
+  background-color: $clr-blue;
+  border-radius: 50%;
+}
+
+html {
+  line-height: 1.5;
+  font-family: $sans-font, sans-serif;
+  font-size: 22px;
+  cursor: crosshair;
+}
+
+body {
+  counter-reset: item;
+  hyphens: auto;
+  word-wrap: break-word;
+  text-rendering: optimizeLegibility;
+  font-kerning: normal;
+
+  transition: 0.5s background-color ease-in-out;
+
+  &.dark-mood {
+    background-color: $clr-blue-dark;
+
+    .TOC-button {
+      background-color: white;
+    }
+
+    .mode--dark {
+      color: $clr-highlight;
+      figcaption,
+      figcaption > p {
+        color: $clr-highlight;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      sup,
+      a,
+      .section__endnotes,
+      li > p,
+      ul,
+      ol {
+        color: $clr-highlight;
+      }
+
+      .container--text-flow {
+        .callout {
+          border: 1px solid white;
+        }
+      }
+    }
+  }
+}
+
+sup {
+  font-weight: 300;
+}
+
+.textflow-container {
+  display: grid;
+  width: 100%;
+  margin: auto;
+  grid-template-columns: 1fr minmax(1rem, 35rem) 1fr;
+}
+
+.table-of-contents {
+  text-align: center;
+  font-family: $sans-font;
+  line-height: 1;
+  min-width: 100vw;
+  min-height: 100vh;
+
+  align-items: center;
+  justify-content: center;
+
+  background-color: $clr-blue-dark;
+
+  h2 {
+    font-size: 2em;
+    font-family: $serif-font;
+  }
+
+  h3 {
+    font-size: 2em;
+    font-family: $serif-font;
+    margin-bottom: 0.5em;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  li + li {
+    margin-top: 1em;
+  }
+
+  .grid-toc {
+    padding: $flow-space;
+    display: grid;
+    min-width: 100vw;
+    min-height: 100vh;
+    grid-template-rows: repeat(max-content);
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "header-1 header-1 header-1"
+      "header-2 header-2 header-2"
+      "main-left main-middle main-right"
+      "footer-1 footer-1 footer-1"
+      "footer-2 footer-2 footer-2"
+      "footer-3 footer-3 footer-3";
+
+    justify-items: stretch;
+    text-align: center;
+    align-items: top;
+
+    color: white;
+
+    .grid-section {
+      border: 1px solid $clr-highlight;
+      padding: $flow-space;
+      font-size: $extra-small;
+
+      a {
+        color: white;
+      }
+      p + p {
+        margin-top: 0.5em;
+      }
+
+      a:hover {
+        background-color: $clr-blue;
+        color: $clr-highlight;
+      }
+    }
+
+    .section-1 {
+      grid-area: header-1;
+    }
+
+    .section-2 {
+      grid-area: header-2;
+    }
+
+    .section-3 {
+      grid-area: main-left;
+    }
+
+    .section-4 {
+      grid-area: main-middle;
+    }
+
+    .section-5 {
+      grid-area: main-right;
+    }
+
+    .section-6 {
+      grid-area: footer-1;
+    }
+
+    .section-7 {
+      grid-area: footer-2;
+    }
+
+    .section-8 {
+      grid-area: footer-3;
+    }
+  }
+}
+
+.slide.cover {
+  padding: 2 * $flow-space;
+  width: 100%;
+  height: 100vh;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  // change these numbers up and get a cool effect
+  background: radial-gradient(
+    circle at 150%,
+    rgb(6, 9, 97),
+    $clr-blue-dark 50%,
+    $clr-blue 55%,
+    $clr-blue-dark 75%
+  );
+  overflow: hidden;
+  h1 {
+    font-size: 2.5em;
+    font-family: $sans-font;
+    font-weight: 300;
+    color: $clr-highlight;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+}
+
+.container--text-flow {
+  grid-column: 2;
+
+  h1 {
+    font-family: $serif-font;
+    font-weight: 700;
+    font-size: $x-large;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    margin: $flow-space * 5 0;
+    text-align: center;
+  }
+
+  h2,
+  h3 {
+    font-family: $sans-font;
+    font-weight: 700;
+    font-size: $large;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    margin: $flow-space * 2 0;
+  }
+
+  h4 {
+    font-size: $medium;
+    font-family: $sans-font;
+    font-weight: 700;
+    line-height: 1.05;
+  }
+
+  section {
+    height: fit-content;
+
+    margin-top: $flow-space * 3;
+
+    &:last-of-type {
+      margin-bottom: $flow-space * 3;
+    }
+
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    blockquote,
+    li,
+    a,
+    sup {
+      color: $clr-blue;
+    }
+  }
+
+  strong {
+    font-family: $sans-font, serif;
+    font-weight: 500;
+  }
+
+  em {
+    font-family: $serif-font, serif;
+    font-weight: 300;
+    font-style: italic;
+  }
+
+  .label {
+    font-family: $sans-font;
+    font-weight: 700;
+  }
+
+  blockquote {
+    border-left: 2px solid $clr-blue;
+    padding-left: $flow-space;
+    font-family: $sans-font;
+    margin: $flow-space 0;
+    font-style: italic;
+  }
+
+  .section__endnotes {
+    margin: $flow-space 0;
+    padding-left: $flow-space;
+    font-size: $extra-small;
+    list-style: none;
+
+    a {
+      opacity: 1;
+    }
+
+    li {
+      transition: 0.4s filter, 0.2s opacity;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      & > p {
+        color: $clr-blue-opacity;
+      }
+
+      .footnote-back {
+        opacity: 1;
+        font-style: strong;
+        font-weight: 900;
+      }
+    }
+
+    li + li {
+      margin-top: 0.5em;
+    }
+
+    li p:before {
+      counter-increment: item;
+      content: counter(item);
+
+      font-size: $extra-small;
+      font-family: $sans-font, sans-serif;
+      font-weight: bold;
+      letter-spacing: -0.12em;
+      margin-right: 0.5em;
+
+      width: 1.5em;
+      height: 1.5em;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+      color: $clr-blue;
+    }
+  }
+
+  .footnote-ref {
+    text-decoration: none;
+
+    sup {
+      vertical-align: super;
+      font-size: $extra-small;
+      font-family: $sans-font, sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      font-style: normal;
+      margin-left: 0.1em;
+    }
+  }
+
+  figure {
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: $flow-space * 3.5 0;
+
+    img {
+      filter: blur(3em);
+
+      transition: 0.5s filter ease-in-out, 0.3s opacity ease-in-out;
+
+      &:hover {
+        filter: blur(0);
+      }
+
+      &.unblur {
+        filter: none;
+        opacity: 1;
+      }
+    }
+
+    figcaption {
+      font-size: $extra-small;
+      color: $clr-blue;
+      line-height: 1.05;
+      font-family: $serif-font;
+      text-align: center;
+      margin-top: 1em;
+    }
+  }
+
+  .callout {
+    margin: $flow-space 0;
+    padding: $flow-space * 2;
+    border: 1px solid $clr-blue;
+
+    ul {
+      margin-top: $flow-space;
+
+      li {
+        font-family: $serif-font;
+        font-weight: 300;
+        line-height: 1.2;
+      }
+
+      li + li {
+        margin-top: $flow-space;
+      }
+    }
+
+    &.dark {
+      background-color: $clr-blue;
+
+      p {
+        color: $clr-highlight;
+        font-family: $sans-font;
+      }
+    }
+  }
+
+  p + p {
+    margin-top: $flow-space;
+  }
+
+  a:visited {
+    color: $clr-highlight;
+  }
+
+  img {
+    max-width: 100vw;
+    max-height: 100vh;
+
+    &.img--sublime {
+      box-shadow: inset 0 0 50px #fff,
+        /* inner white */ inset 20px 0 80px rgb(0, 110, 255),
+        /* inner left magenta short */ inset -20px 0 80px rgb(0, 8, 255),
+        /* inner right cyan short */ inset 20px 0 300px rgb(0, 30, 255),
+        /* inner left magenta broad */ inset -20px 0 300px rgb(0, 60, 255),
+        /* inner right cyan broad */ 0 0 50px #fff,
+        /* outer white */ -10px 0 80px rgb(2, 30, 119),
+        /* outer left magenta */ 10px 0 80px rgb(0, 30, 255); /* outer right cyan */
+    }
+
+    &.img--news {
+      padding: 2 * $flow-space;
+      background-color: $clr-grey;
+    }
+  }
+}
+
+@media screen and (orientation: portrait) {
+  .table-of-contents {
+    .grid-toc {
+      display: grid;
+      grid-template-rows: auto;
+      grid-template-columns: auto;
+      grid-template-areas:
+        "header-1"
+        "header-2"
+        "main-left"
+        "main-middle"
+        "main-right"
+        "footer-1"
+        "footer-2"
+        "footer-3";
+
+      .grid-section {
+        font-size: $small;
+      }
+    }
+  }
+
+  .container--text-flow {
+    padding: 0 $flow-space;
+  }
+
+  img {
+    width: 100vw;
+    height: auto;
+    min-height: 100%;
+    position: relative;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .container--text-flow {
+    padding: 0 $flow-space;
+  }
+}
