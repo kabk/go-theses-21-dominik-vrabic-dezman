@@ -6,6 +6,7 @@
 - d3 network graph
 - blue dot smaller on scroll; becomes bigger when scrolling stopped for 1-2sec
 - flashing matrix letters underneath
+- max image width 100vw
 
 - fix image stretching
 */ //////////////// ####/
@@ -815,5 +816,13 @@ sup {
   }
   .container--text-flow {
     padding: 0 $flow-space;
+
+    img {
+      max-width: 100vw;
+      max-height: 80vh;
+      height: auto;
+      min-height: 100%;
+      position: relative;
+    }
   }
 }
