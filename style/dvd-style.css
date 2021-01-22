@@ -14,161 +14,6 @@
 - news images make grey background full width
 */
 /* ////////////// TYPEFACES //////////////*/
-@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Ramabhadra&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-@font-face {
-  font-family: "Flaco";
-  src: url("fonts/Flaco-UltraLight.woff2") format("woff2"), url("fonts/Flaco-UltraLight.woff") format("woff");
-  font-weight: 200;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Flaco";
-  src: url("fonts/Flaco-UltraLightItalic.woff2") format("woff2"), url("fonts/Flaco-UltraLightItalic.woff") format("woff");
-  font-weight: 200;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Flaco";
-  src: url("fonts/Flaco-Heavy.woff2") format("woff2"), url("fonts/Flaco-Heavy.woff") format("woff");
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Flaco";
-  src: url("fonts/Flaco-HeavyItalic.woff2") format("woff2"), url("fonts/Flaco-HeavyItalic.woff") format("woff");
-  font-weight: 900;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Flaco-Mono";
-  src: url("fonts/Flaco-Mono.woff2") format("woff2"), url("fonts/Flaco-Mono.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Flaco";
-  src: url("fonts/Flaco-ExtraLight.woff2") format("woff2"), url("fonts/Flaco-ExtraLight.woff") format("woff");
-  font-weight: 200;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Flaco";
-  src: url("fonts/Flaco-ThinItalic.woff2") format("woff2"), url("fonts/Flaco-ThinItalic.woff") format("woff");
-  font-weight: 100;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Flaco";
-  src: url("fonts/Flaco-ExtraLightItalic.woff2") format("woff2"), url("fonts/Flaco-ExtraLightItalic.woff") format("woff");
-  font-weight: 200;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Flaco";
-  src: url("fonts/Flaco-Regular.woff2") format("woff2"), url("fonts/Flaco-Regular.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Flaco";
-  src: url("fonts/Flaco-LightItalic.woff2") format("woff2"), url("fonts/Flaco-LightItalic.woff") format("woff");
-  font-weight: 300;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Flaco";
-  src: url("fonts/Flaco-Light.woff2") format("woff2"), url("fonts/Flaco-Light.woff") format("woff");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Flaco";
-  src: url("fonts/Flaco-Italic.woff2") format("woff2"), url("fonts/Flaco-Italic.woff") format("woff");
-  font-weight: normal;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Flaco";
-  src: url("fonts/Flaco-MediumItalic.woff2") format("woff2"), url("fonts/Flaco-MediumItalic.woff") format("woff");
-  font-weight: 500;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Flaco";
-  src: url("fonts/Flaco-Medium.woff2") format("woff2"), url("fonts/Flaco-Medium.woff") format("woff");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Flaco";
-  src: url("fonts/Flaco-Thin.woff2") format("woff2"), url("fonts/Flaco-Thin.woff") format("woff");
-  font-weight: 100;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Flaco";
-  src: url("fonts/Flaco-Bold.woff2") format("woff2"), url("fonts/Flaco-Bold.woff") format("woff");
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Flaco";
-  src: url("fonts/Flaco-ExtraBold.woff2") format("woff2"), url("fonts/Flaco-ExtraBold.woff") format("woff");
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Flaco";
-  src: url("fonts/Flaco-BoldItalic.woff2") format("woff2"), url("fonts/Flaco-BoldItalic.woff") format("woff");
-  font-weight: bold;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Flaco";
-  src: url("fonts/Flaco-ExtraBoldItalic.woff2") format("woff2"), url("fonts/Flaco-ExtraBoldItalic.woff") format("woff");
-  font-weight: 800;
-  font-style: italic;
-  font-display: swap;
-}
-
 @font-face {
   font-family: "Agipo Regular";
   src: url("fonts/Agipo-Regular.woff2") format("woff2"), url("fonts/Agipo-Regular.woff") format("woff");
@@ -378,8 +223,8 @@ html {
   position: fixed;
   left: 0;
   top: 0;
-  width: 1rem;
-  height: 1rem;
+  width: 2rem;
+  height: 2rem;
   background-color: #0719a2;
   border-radius: 50%;
 }
@@ -397,7 +242,7 @@ body {
   word-wrap: break-word;
   text-rendering: optimizeLegibility;
   font-kerning: normal;
-  transition: 0.5s background-color ease-in-out;
+  transition: background 0.5s ease-in-out;
 }
 
 body.dark-mood {
@@ -406,6 +251,10 @@ body.dark-mood {
 
 body.dark-mood .TOC-button {
   background-color: white;
+}
+
+body.dark-mood .container--text-flow section:not(.mode--dark) {
+  opacity: 0;
 }
 
 body.dark-mood .mode--dark {
@@ -433,6 +282,10 @@ body.dark-mood .mode--dark ol {
   color: white;
 }
 
+body.dark-mood .mode--dark .section__endnotes p:before {
+  color: white;
+}
+
 body.dark-mood .mode--dark .container--text-flow .callout {
   border: 1px solid white;
 }
@@ -456,7 +309,8 @@ sup {
   min-height: 100vh;
   align-items: center;
   justify-content: center;
-  background-color: #000a30;
+  background: linear-gradient(180deg, #000c40 0%, #000c40 80%, #0719a2 100%);
+  background-attachment: fixed;
 }
 
 .table-of-contents h2 {
@@ -556,12 +410,14 @@ sup {
 }
 
 .slide.cover h1 {
-  font-size: 2.5em;
-  font-family: "Agipo Regular";
+  font-size: 4rem;
+  font-family: "Redaction 50";
   font-weight: 300;
+  text-align: center;
   color: white;
   letter-spacing: -0.03em;
   line-height: 1.1;
+  padding: 2rem;
 }
 
 .container--text-flow {
@@ -569,7 +425,7 @@ sup {
 }
 
 .container--text-flow h1 {
-  font-family: "Bradford LL";
+  font-family: "Redaction 50";
   font-weight: 700;
   font-size: 3em;
   letter-spacing: -0.03em;
@@ -585,7 +441,7 @@ sup {
   font-size: 2em;
   letter-spacing: -0.03em;
   line-height: 1.05;
-  margin: 2rem 0;
+  margin: 7rem 0 2rem 0;
 }
 
 .container--text-flow h4 {
@@ -609,10 +465,13 @@ sup {
 .container--text-flow section h2,
 .container--text-flow section h3,
 .container--text-flow section h4,
-.container--text-flow section blockquote,
 .container--text-flow section li,
 .container--text-flow section a,
 .container--text-flow section sup {
+  color: #000a30;
+}
+
+.container--text-flow section blockquote p {
   color: #0719a2;
 }
 
@@ -637,14 +496,14 @@ sup {
   padding-left: 1rem;
   font-family: "Agipo Regular";
   margin: 1rem 0;
-  font-style: italic;
 }
 
 .container--text-flow .section__endnotes {
-  margin: 1rem 0;
-  padding-left: 1rem;
+  margin: 2rem 0;
   font-size: 0.7em;
   list-style: none;
+  background-color: #fafafa;
+  padding: 2rem;
 }
 
 .container--text-flow .section__endnotes a {
@@ -653,6 +512,8 @@ sup {
 
 .container--text-flow .section__endnotes li {
   transition: 0.4s filter, 0.2s opacity;
+  padding-left: 2rem;
+  text-indent: -1rem;
 }
 
 .container--text-flow .section__endnotes li:hover {
@@ -660,7 +521,7 @@ sup {
 }
 
 .container--text-flow .section__endnotes li > p {
-  color: rgba(7, 25, 162, 0.4);
+  color: #0719a2;
 }
 
 .container--text-flow .section__endnotes li .footnote-back {
@@ -675,12 +536,11 @@ sup {
 
 .container--text-flow .section__endnotes li p:before {
   counter-increment: item;
-  content: counter(item);
-  font-size: 0.7em;
+  content: counter(item) ".";
+  font-size: 0.8em;
   font-family: "Agipo Regular", sans-serif;
   font-weight: bold;
-  letter-spacing: -0.12em;
-  margin-right: 0.5em;
+  letter-spacing: 0em;
   width: 1.5em;
   height: 1.5em;
   display: inline-flex;
@@ -709,11 +569,13 @@ sup {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 3.5rem 0;
+  margin: 5rem 0;
 }
 
 .container--text-flow figure img {
   filter: blur(3em);
+  min-width: 80%;
+  max-height: 100vh;
   transition: 0.5s filter ease-in-out, 0.3s opacity ease-in-out;
 }
 
@@ -732,7 +594,7 @@ sup {
   line-height: 1.05;
   font-family: "Bradford LL";
   text-align: center;
-  margin-top: 1em;
+  margin-top: 2rem;
 }
 
 .container--text-flow .callout {
@@ -773,18 +635,18 @@ sup {
 }
 
 .container--text-flow img {
-  max-width: 100vw;
+  max-width: 80vw;
   max-height: 100vh;
 }
 
 .container--text-flow img.img--sublime {
-  box-shadow: inset 0 0 50px #fff, inset 20px 0 80px #006eff, inset -20px 0 80px #0008ff, inset 20px 0 300px #001eff, inset -20px 0 300px #003cff, 0 0 50px #fff, -10px 0 80px #021e77, 10px 0 80px #001eff;
+  box-shadow: inset 0 0 50px #fff, inset 20px 0 80px #006eff, inset -20px 0 80px #0008ff, inset 20px 0 100px white, inset -20px 0 100px #003cff, -10px 0 80px #021e77, 10px 0 80px #001eff;
   /* outer right cyan */
 }
 
 .container--text-flow img.img--news {
-  padding: 2rem;
-  background-color: #f0f0f0;
+  border-radius: 1rem;
+  box-shadow: 27px 27px 63px #d7d6d9, -27px -27px 63px #ffffff;
 }
 
 @media screen and (orientation: portrait) {
@@ -795,12 +657,12 @@ sup {
     grid-template-areas: "header-1" "header-2" "main-left" "main-middle" "main-right" "footer-1" "footer-2" "footer-3";
   }
   .table-of-contents .grid-toc .grid-section {
-    font-size: 1.2em;
+    font-size: 1em;
   }
   .container--text-flow {
     padding: 0 1rem;
   }
-  img {
+  .container--text-flow img {
     width: 100vw;
     height: auto;
     min-height: 100%;
@@ -809,6 +671,9 @@ sup {
 }
 
 @media only screen and (max-width: 600px) {
+  html {
+    font-size: 17px;
+  }
   .container--text-flow {
     padding: 0 1rem;
   }
