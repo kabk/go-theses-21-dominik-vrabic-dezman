@@ -48,17 +48,17 @@ window.addEventListener("DOMContentLoaded", (event) => {
       let top = viewportOffset.top;
       let bottom = viewportOffset.bottom;
 
-      if (top <= windowHeight / 2 && top > 0) {
+      if (top <= windowHeight * 0.3 && top > 0) {
         body.classList.add("dark-mood");
         console.log("Added 1");
-      } else if (top >= windowHeight / 2 && top < windowHeight && top > 0) {
+      } else if (top >= windowHeight * 0.3 && top < windowHeight && top > 0) {
         console.log(top, windowHeight);
         body.classList.remove("dark-mood");
         console.log("Removed 1");
-      } else if (bottom <= windowHeight / 3 && bottom >= 0) {
+      } else if (bottom <= windowHeight * 0.3 && bottom >= 0) {
         body.classList.remove("dark-mood");
         console.log("Removed 2"); /* DEBUG */
-      } else if (bottom >= windowHeight / 3 && bottom < windowHeight) {
+      } else if (bottom >= windowHeight * 0.3 && bottom < windowHeight) {
         body.classList.add("dark-mood");
         console.log("Added 2"); /* DEBUG */
       }

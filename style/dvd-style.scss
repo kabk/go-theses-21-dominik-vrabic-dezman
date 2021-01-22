@@ -292,6 +292,8 @@ body {
 
   overflow-x: hidden;
 
+  transition: background-color 0.5s ease-in-out;
+
   &.dark-mood {
     background-color: $clr-blue-dark;
 
@@ -328,7 +330,7 @@ body {
       }
 
       .section__endnotes {
-        background-color: $clr-blue;
+        background-color: $clr-blue-opacity;
       }
 
       .section__endnotes p:before {
@@ -421,6 +423,16 @@ sup {
       padding: $flow-space;
       font-size: $extra-small;
 
+      h2,
+      h3 {
+        padding: 0;
+        margin: 0;
+      }
+
+      h3 + ol {
+        margin-top: $flow-space;
+      }
+
       a {
         color: white;
       }
@@ -441,11 +453,13 @@ sup {
       h2 {
         font-family: $sans-font;
         font-weight: 300;
+        margin: $flow-space 0;
       }
     }
 
     .section-2 {
       grid-area: header-2;
+      place-self: center stretch;
     }
 
     .section-3 {
