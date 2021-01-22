@@ -240,7 +240,7 @@ body {
   word-wrap: break-word;
   text-rendering: optimizeLegibility;
   font-kerning: normal;
-  transition: background 0.5s ease-in-out;
+  overflow-x: hidden;
 }
 
 body.dark-mood {
@@ -510,8 +510,8 @@ sup {
 }
 
 .container--text-flow .label {
-  font-family: "Agipo Regular";
-  font-weight: 700;
+  font-family: "Bradford LL";
+  font-weight: 300;
 }
 
 .container--text-flow blockquote {
@@ -615,11 +615,21 @@ sup {
   opacity: 1;
 }
 
+.container--text-flow figure img.img--sublime {
+  box-shadow: inset 0 0 50px #fff, inset 20px 0 80px #0719a2, inset -20px 0 80px #0719a2, inset 20px 0 100px white, inset -20px 0 100px #0719a2, -10px 0 80px #021e77, 10px 0 80px #0719a2;
+  /* outer right cyan */
+}
+
+.container--text-flow figure img.img--news {
+  border-radius: 1rem;
+  box-shadow: 27px 27px 63px #d7d6d9, -27px -27px 63px #ffffff;
+}
+
 .container--text-flow figure figcaption {
   font-size: 0.7em;
   color: #0719a2;
-  line-height: 1.15;
-  font-family: "Bradford LL";
+  line-height: 1.5;
+  font-family: "Agipo Regular";
   text-align: center;
   margin-top: 2rem;
 }
@@ -665,21 +675,6 @@ sup {
   color: white;
 }
 
-.container--text-flow img {
-  max-width: 80vw;
-  max-height: 100vh;
-}
-
-.container--text-flow img.img--sublime {
-  box-shadow: inset 0 0 50px #fff, inset 20px 0 80px #0719a2, inset -20px 0 80px #0719a2, inset 20px 0 100px white, inset -20px 0 100px #0719a2, -10px 0 80px #021e77, 10px 0 80px #0719a2;
-  /* outer right cyan */
-}
-
-.container--text-flow img.img--news {
-  border-radius: 1rem;
-  box-shadow: 27px 27px 63px #d7d6d9, -27px -27px 63px #ffffff;
-}
-
 @media screen and (orientation: portrait) {
   .table-of-contents .grid-toc {
     display: grid;
@@ -690,30 +685,24 @@ sup {
   .table-of-contents .grid-toc .grid-section {
     font-size: 1em;
   }
+  .container--text-flow figure img {
+    max-width: 100%;
+  }
   .container--text-flow {
     padding: 0 1rem;
-  }
-  .container--text-flow img {
-    max-width: 100vw;
-    max-height: 80vh;
-    height: auto;
-    min-height: 100%;
-    position: relative;
   }
 }
 
 @media only screen and (max-width: 600px) {
   html {
-    font-size: 17px;
+    font-size: 20px;
   }
   .container--text-flow {
     padding: 0 1rem;
   }
   .container--text-flow img {
-    max-width: 100vw;
-    max-height: 80vh;
+    max-width: 100%;
     height: auto;
-    min-height: 100%;
     position: relative;
   }
 }

@@ -290,9 +290,7 @@ body {
   text-rendering: optimizeLegibility;
   font-kerning: normal;
 
-  // figure this out
-
-  transition: background 0.5s ease-in-out;
+  overflow-x: hidden;
 
   &.dark-mood {
     background-color: $clr-blue-dark;
@@ -582,8 +580,8 @@ sup {
   }
 
   .label {
-    font-family: $sans-font;
-    font-weight: 700;
+    font-family: $serif-font;
+    font-weight: 300;
   }
 
   blockquote {
@@ -699,13 +697,30 @@ sup {
         filter: none;
         opacity: 1;
       }
+
+      &.img--sublime {
+        box-shadow: inset 0 0 50px #fff,
+          /* inner white */ inset 20px 0 80px $clr-blue,
+          /* inner left magenta short */ inset -20px 0 80px $clr-blue,
+          /* inner right cyan short */ inset 20px 0 100px rgb(255, 255, 255),
+          /* inner left magenta broad */ inset -20px 0 100px $clr-blue,
+          /* outer white */ -10px 0 80px rgb(2, 30, 119),
+          /* outer left magenta */ 10px 0 80px $clr-blue; /* outer right cyan */
+      }
+
+      &.img--news {
+        border-radius: 1rem;
+        box-shadow: 27px 27px 63px #d7d6d9, -27px -27px 63px #ffffff;
+
+        // TODO: add full-width grey
+      }
     }
 
     figcaption {
       font-size: $extra-small;
       color: $clr-blue;
-      line-height: 1.15;
-      font-family: $serif-font;
+      line-height: 1.5;
+      font-family: $sans-font;
       text-align: center;
       margin-top: $flow-space * 2;
     }
@@ -753,25 +768,6 @@ sup {
   }
 
   img {
-    max-width: 80vw;
-    max-height: 100vh;
-
-    &.img--sublime {
-      box-shadow: inset 0 0 50px #fff,
-        /* inner white */ inset 20px 0 80px $clr-blue,
-        /* inner left magenta short */ inset -20px 0 80px $clr-blue,
-        /* inner right cyan short */ inset 20px 0 100px rgb(255, 255, 255),
-        /* inner left magenta broad */ inset -20px 0 100px $clr-blue,
-        /* outer white */ -10px 0 80px rgb(2, 30, 119),
-        /* outer left magenta */ 10px 0 80px $clr-blue; /* outer right cyan */
-    }
-
-    &.img--news {
-      border-radius: 1rem;
-      box-shadow: 27px 27px 63px #d7d6d9, -27px -27px 63px #ffffff;
-
-      // TODO: add full-width grey
-    }
   }
 }
 
@@ -798,30 +794,28 @@ sup {
   }
 
   .container--text-flow {
-    padding: 0 $flow-space;
-
-    img {
-      max-width: 100vw;
-      max-height: 80vh;
-      height: auto;
-      min-height: 100%;
-      position: relative;
+    figure {
+      img {
+        max-width: 100%;
+      }
     }
+  }
+
+  .container--text-flow {
+    padding: 0 $flow-space;
   }
 }
 
 @media only screen and (max-width: 600px) {
   html {
-    font-size: 17px;
+    font-size: 20px;
   }
   .container--text-flow {
     padding: 0 $flow-space;
 
     img {
-      max-width: 100vw;
-      max-height: 80vh;
+      max-width: 100%;
       height: auto;
-      min-height: 100%;
       position: relative;
     }
   }
