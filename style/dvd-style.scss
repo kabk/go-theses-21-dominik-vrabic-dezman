@@ -2,16 +2,12 @@
 // TODO:
 - bibliography
 - animation of smooth circles on cover page
-- vertical rhythm
 - change background colour between chapters
-- tint of off-present images
 - d3 network graph
-- side-by-side comparison
 - blue dot smaller on scroll; becomes bigger when scrolling stopped for 1-2sec
 - flashing matrix letters underneath
 
 - fix image stretching
-- news images make grey background full width
 */ //////////////// ####/
 
 $extra-small: 0.7em;
@@ -276,6 +272,7 @@ html {
   height: $flow-space * 2;
   background-color: $clr-blue;
   border-radius: 50%;
+  transition: 0.5s background-color ease-in-out;
 }
 
 html {
@@ -325,19 +322,22 @@ body {
       a,
       .section__endnotes,
       li > p,
+      li,
       ul,
       ol {
         color: $clr-highlight;
+      }
+
+      .section__endnotes {
+        background-color: $clr-blue;
       }
 
       .section__endnotes p:before {
         color: $clr-highlight;
       }
 
-      .container--text-flow {
-        .callout {
-          border: 1px solid white;
-        }
+      .callout {
+        border: 1px solid white;
       }
     }
   }
@@ -367,8 +367,8 @@ sup {
   // background-color: $clr-blue;
   background: linear-gradient(
     180deg,
-    rgba(0, 12, 64, 1) 0%,
-    rgba(0, 12, 64, 1) 80%,
+    $clr-blue-dark 0%,
+    $clr-blue-dark 80%,
     $clr-blue 100%
   );
   background-attachment: fixed;
@@ -390,6 +390,10 @@ sup {
 
   li + li {
     margin-top: 1em;
+  }
+
+  .numeral {
+    font-family: $serif-font;
   }
 
   .grid-toc {
@@ -433,6 +437,12 @@ sup {
 
     .section-1 {
       grid-area: header-1;
+      border: 0;
+
+      h2 {
+        font-family: $sans-font;
+        font-weight: 300;
+      }
     }
 
     .section-2 {
@@ -517,6 +527,11 @@ sup {
     margin: $flow-space * 7 0 $flow-space * 2 0;
   }
 
+  h3 {
+    font-family: $serif-font;
+    font-weight: 500;
+  }
+
   h4 {
     font-size: $medium;
     font-family: $sans-font;
@@ -525,6 +540,7 @@ sup {
   }
 
   section {
+    transition: opacity 0.5s ease-in-out;
     height: fit-content;
 
     margin-top: $flow-space * 3;
@@ -539,19 +555,23 @@ sup {
     h3,
     h4,
     li,
-    a,
-    sup {
+    a {
       color: $clr-blue-dark;
     }
 
-    blockquote p {
+    sup {
       color: $clr-blue;
+    }
+
+    blockquote p {
+      color: $clr-blue-dark;
     }
   }
 
   strong {
     font-family: $sans-font, serif;
-    font-weight: 500;
+    font-weight: 700;
+    color: $clr-blue;
   }
 
   em {
@@ -579,6 +599,9 @@ sup {
     list-style: none;
     background-color: $clr-grey;
     padding: $flow-space * 2;
+    border-radius: 0.3rem;
+
+    transition: 0.5s background-color ease-in-out;
 
     // display: flex;
     // flex-wrap: wrap;
@@ -658,12 +681,14 @@ sup {
     margin: $flow-space * 5 0;
 
     img {
-      filter: blur(3em);
+      filter: blur(1.2em);
 
-      min-width: 80%;
-      max-height: 100vh;
+      min-width: 40vw;
+      max-height: 90vh;
+      max-width: 35rem;
+      opacity: 0.4;
 
-      transition: 0.5s filter ease-in-out, 0.3s opacity ease-in-out;
+      transition: 0.6s filter ease-in-out, 0.7s opacity ease-in-out;
 
       &:hover {
         filter: blur(0);
@@ -678,7 +703,7 @@ sup {
     figcaption {
       font-size: $extra-small;
       color: $clr-blue;
-      line-height: 1.05;
+      line-height: 1.15;
       font-family: $serif-font;
       text-align: center;
       margin-top: $flow-space * 2;
@@ -688,7 +713,11 @@ sup {
   .callout {
     margin: $flow-space 0;
     padding: $flow-space * 2;
-    border: 1px solid $clr-blue;
+    border: 2px solid $clr-blue;
+
+    h2 {
+      margin-top: 0;
+    }
 
     ul {
       margin-top: $flow-space;
@@ -728,12 +757,12 @@ sup {
 
     &.img--sublime {
       box-shadow: inset 0 0 50px #fff,
-        /* inner white */ inset 20px 0 80px rgb(0, 110, 255),
-        /* inner left magenta short */ inset -20px 0 80px rgb(0, 8, 255),
+        /* inner white */ inset 20px 0 80px $clr-blue,
+        /* inner left magenta short */ inset -20px 0 80px $clr-blue,
         /* inner right cyan short */ inset 20px 0 100px rgb(255, 255, 255),
-        /* inner left magenta broad */ inset -20px 0 100px rgb(0, 60, 255),
+        /* inner left magenta broad */ inset -20px 0 100px $clr-blue,
         /* outer white */ -10px 0 80px rgb(2, 30, 119),
-        /* outer left magenta */ 10px 0 80px rgb(0, 30, 255); /* outer right cyan */
+        /* outer left magenta */ 10px 0 80px $clr-blue; /* outer right cyan */
     }
 
     &.img--news {
@@ -771,7 +800,8 @@ sup {
     padding: 0 $flow-space;
 
     img {
-      width: 100vw;
+      max-width: 100vw;
+      max-height: 80vh;
       height: auto;
       min-height: 100%;
       position: relative;

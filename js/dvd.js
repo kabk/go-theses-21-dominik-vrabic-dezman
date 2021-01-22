@@ -35,6 +35,12 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
   let windowHeight = window.innerHeight;
 
+  let tocButton = document.querySelector(".TOC-button");
+
+  tocButton.addEventListener("click", () => {
+    body.classList.remove("dark-mood");
+  });
+
   window.addEventListener("scroll", () => {
     darkSelector.forEach((chapter) => {
       let viewportOffset = chapter.getBoundingClientRect();
@@ -65,13 +71,13 @@ window.addEventListener("DOMContentLoaded", (event) => {
       let bottom = viewportOffset.bottom;
       let left = viewportOffset.left;
 
-      if (top <= windowHeight / 2) {
+      if (top <= windowHeight * 0.7) {
         item.classList.add("unblur");
       } else if (top >= windowHeight / 2) {
         item.classList.remove("unblur");
       }
 
-      if (bottom <= windowHeight / 4) {
+      if (bottom <= windowHeight * 0.3) {
         item.classList.remove("unblur");
       }
     });

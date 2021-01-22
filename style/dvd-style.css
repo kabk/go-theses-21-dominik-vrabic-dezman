@@ -2,16 +2,12 @@
 // TODO:
 - bibliography
 - animation of smooth circles on cover page
-- vertical rhythm
 - change background colour between chapters
-- tint of off-present images
 - d3 network graph
-- side-by-side comparison
 - blue dot smaller on scroll; becomes bigger when scrolling stopped for 1-2sec
 - flashing matrix letters underneath
 
 - fix image stretching
-- news images make grey background full width
 */
 /* ////////////// TYPEFACES //////////////*/
 @font-face {
@@ -227,6 +223,7 @@ html {
   height: 2rem;
   background-color: #0719a2;
   border-radius: 50%;
+  transition: 0.5s background-color ease-in-out;
 }
 
 html {
@@ -277,16 +274,21 @@ body.dark-mood .mode--dark sup,
 body.dark-mood .mode--dark a,
 body.dark-mood .mode--dark .section__endnotes,
 body.dark-mood .mode--dark li > p,
+body.dark-mood .mode--dark li,
 body.dark-mood .mode--dark ul,
 body.dark-mood .mode--dark ol {
   color: white;
+}
+
+body.dark-mood .mode--dark .section__endnotes {
+  background-color: #0719a2;
 }
 
 body.dark-mood .mode--dark .section__endnotes p:before {
   color: white;
 }
 
-body.dark-mood .mode--dark .container--text-flow .callout {
+body.dark-mood .mode--dark .callout {
   border: 1px solid white;
 }
 
@@ -309,7 +311,7 @@ sup {
   min-height: 100vh;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(180deg, #000c40 0%, #000c40 80%, #0719a2 100%);
+  background: linear-gradient(180deg, #000a30 0%, #000a30 80%, #0719a2 100%);
   background-attachment: fixed;
 }
 
@@ -330,6 +332,10 @@ sup {
 
 .table-of-contents li + li {
   margin-top: 1em;
+}
+
+.table-of-contents .numeral {
+  font-family: "Bradford LL";
 }
 
 .table-of-contents .grid-toc {
@@ -367,6 +373,12 @@ sup {
 
 .table-of-contents .grid-toc .section-1 {
   grid-area: header-1;
+  border: 0;
+}
+
+.table-of-contents .grid-toc .section-1 h2 {
+  font-family: "Agipo Regular";
+  font-weight: 300;
 }
 
 .table-of-contents .grid-toc .section-2 {
@@ -444,6 +456,11 @@ sup {
   margin: 7rem 0 2rem 0;
 }
 
+.container--text-flow h3 {
+  font-family: "Bradford LL";
+  font-weight: 500;
+}
+
 .container--text-flow h4 {
   font-size: 1.5em;
   font-family: "Agipo Regular";
@@ -452,6 +469,7 @@ sup {
 }
 
 .container--text-flow section {
+  transition: opacity 0.5s ease-in-out;
   height: fit-content;
   margin-top: 3rem;
 }
@@ -466,18 +484,22 @@ sup {
 .container--text-flow section h3,
 .container--text-flow section h4,
 .container--text-flow section li,
-.container--text-flow section a,
-.container--text-flow section sup {
+.container--text-flow section a {
   color: #000a30;
 }
 
-.container--text-flow section blockquote p {
+.container--text-flow section sup {
   color: #0719a2;
+}
+
+.container--text-flow section blockquote p {
+  color: #000a30;
 }
 
 .container--text-flow strong {
   font-family: "Agipo Regular", serif;
-  font-weight: 500;
+  font-weight: 700;
+  color: #0719a2;
 }
 
 .container--text-flow em {
@@ -504,6 +526,8 @@ sup {
   list-style: none;
   background-color: #fafafa;
   padding: 2rem;
+  border-radius: 0.3rem;
+  transition: 0.5s background-color ease-in-out;
 }
 
 .container--text-flow .section__endnotes a {
@@ -573,10 +597,12 @@ sup {
 }
 
 .container--text-flow figure img {
-  filter: blur(3em);
-  min-width: 80%;
-  max-height: 100vh;
-  transition: 0.5s filter ease-in-out, 0.3s opacity ease-in-out;
+  filter: blur(1.2em);
+  min-width: 40vw;
+  max-height: 90vh;
+  max-width: 35rem;
+  opacity: 0.4;
+  transition: 0.6s filter ease-in-out, 0.7s opacity ease-in-out;
 }
 
 .container--text-flow figure img:hover {
@@ -591,7 +617,7 @@ sup {
 .container--text-flow figure figcaption {
   font-size: 0.7em;
   color: #0719a2;
-  line-height: 1.05;
+  line-height: 1.15;
   font-family: "Bradford LL";
   text-align: center;
   margin-top: 2rem;
@@ -600,7 +626,11 @@ sup {
 .container--text-flow .callout {
   margin: 1rem 0;
   padding: 2rem;
-  border: 1px solid #0719a2;
+  border: 2px solid #0719a2;
+}
+
+.container--text-flow .callout h2 {
+  margin-top: 0;
 }
 
 .container--text-flow .callout ul {
@@ -640,7 +670,7 @@ sup {
 }
 
 .container--text-flow img.img--sublime {
-  box-shadow: inset 0 0 50px #fff, inset 20px 0 80px #006eff, inset -20px 0 80px #0008ff, inset 20px 0 100px white, inset -20px 0 100px #003cff, -10px 0 80px #021e77, 10px 0 80px #001eff;
+  box-shadow: inset 0 0 50px #fff, inset 20px 0 80px #0719a2, inset -20px 0 80px #0719a2, inset 20px 0 100px white, inset -20px 0 100px #0719a2, -10px 0 80px #021e77, 10px 0 80px #0719a2;
   /* outer right cyan */
 }
 
@@ -663,7 +693,8 @@ sup {
     padding: 0 1rem;
   }
   .container--text-flow img {
-    width: 100vw;
+    max-width: 100vw;
+    max-height: 80vh;
     height: auto;
     min-height: 100%;
     position: relative;
