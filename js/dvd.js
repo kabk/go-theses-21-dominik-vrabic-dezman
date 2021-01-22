@@ -19,10 +19,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
     #000a30 ${10 + Math.random() * 100}%`;
   })();
 
-  // document.querySelector("nav").addEventListener("click", function () {
-  //   this.classList.add("active");
-  // });
-
   document.querySelector("nav").addEventListener("click", function () {
     this.classList.toggle("active");
   });
@@ -32,6 +28,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
   const darkSelector = document.querySelectorAll(".mode--dark");
 
   const body = document.querySelector("body");
+
+  const thesisTitle = document.querySelector(".thesis-title");
 
   let windowHeight = window.innerHeight;
 
@@ -48,19 +46,20 @@ window.addEventListener("DOMContentLoaded", (event) => {
       let top = viewportOffset.top;
       let bottom = viewportOffset.bottom;
 
+      let thesisWords = thesisTitle.innerHTML.split(" ");
+
+      // different character style each time
+
+      let newThesisWords = thesisWords.map((word) => {});
+
       if (top <= windowHeight * 0.3 && top > 0) {
         body.classList.add("dark-mood");
-        console.log("Added 1");
       } else if (top >= windowHeight * 0.3 && top < windowHeight && top > 0) {
-        console.log(top, windowHeight);
         body.classList.remove("dark-mood");
-        console.log("Removed 1");
       } else if (bottom <= windowHeight * 0.3 && bottom >= 0) {
         body.classList.remove("dark-mood");
-        console.log("Removed 2"); /* DEBUG */
       } else if (bottom >= windowHeight * 0.3 && bottom < windowHeight) {
         body.classList.add("dark-mood");
-        console.log("Added 2"); /* DEBUG */
       }
     });
 
