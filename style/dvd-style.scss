@@ -271,7 +271,6 @@ html {
   align-items: center;
   left: 0.3rem;
   top: 0.3rem;
-  width: max-content;
   height: $flow-space * 2;
   background-color: $clr-highlight;
   border-radius: $flow-space;
@@ -279,9 +278,16 @@ html {
   color: $clr-blue;
   transition: 0.5s background-color ease-in-out;
   overflow: hidden;
-  box-shadow: 27px 27px 63px #d7d6d9, -27px -27px 63px #ffffff;
+  text-overflow: ellipsis;
+  box-shadow: 27px 27px 63px #d7d6d9, -27px -27px 63px #ffffff74;
 
   opacity: 1;
+
+  p {
+    width: 100%;
+    text-overflow: ellipsis;
+    transition: 0.5s color ease-in-out;
+  }
 
   transition: opacity 0.5s ease-in-out;
 
@@ -290,9 +296,14 @@ html {
     opacity: 0;
   }
 
+  // &.no-shadow {
+  //   box-shadow: none;
+  // }
+
   &:hover {
     background-color: $clr-blue;
     color: $clr-highlight;
+    width: max-content;
 
     &::after {
       content: "TOC";
@@ -309,12 +320,14 @@ html {
   }
 
   .progress-shape {
+    transition: 0.5s color ease-in-out;
+
     position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
     height: 100%;
     width: 100%;
-    background-color: $clr-grey;
+    background-color: hsl(0, 0%, 96%);
     mix-blend-mode: hard-light;
   }
 }
@@ -346,7 +359,44 @@ body {
     background-color: $clr-blue-dark;
 
     .TOC-button {
-      background-color: white;
+      left: 0.3rem;
+      top: 0.3rem;
+      height: $flow-space * 2;
+      background-color: $clr-blue;
+      color: $clr-highlight;
+      overflow: hidden;
+      box-shadow: none;
+
+      opacity: 1;
+
+      p {
+        width: 100%;
+        text-overflow: ellipsis;
+      }
+
+      &:hover {
+        background-color: $clr-highlight;
+        color: $clr-blue;
+        width: max-content;
+
+        &::after {
+          content: "TOC";
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: absolute;
+          background-color: $clr-highlight;
+          top: 0;
+          right: 0;
+          left: 0;
+          bottom: 0;
+        }
+      }
+
+      .progress-shape {
+        background-color: $clr-blue-dark;
+        // mix-blend-mode: hard-light;
+      }
     }
 
     .container--text-flow section:not(.mode--dark) {

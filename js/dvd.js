@@ -92,7 +92,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
         let distanceToTravel = elDistanceToBottom - elDistanceToTop;
 
         document.querySelector(".progress-shape").style.width = `${
-          (1 - scrolltoTop / distanceToTravel) * 100
+          (scrolltoTop / distanceToTravel) * 100
         }%`;
 
         document.querySelector(".TOC-button p").innerHTML = allSectionHeaders[
@@ -140,12 +140,16 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
       if (top <= windowHeight * 0.3 && top > 0) {
         body.classList.add("dark-mood");
+        tocButton.classList.add("no-shadow");
       } else if (top >= windowHeight * 0.3 && top < windowHeight && top > 0) {
         body.classList.remove("dark-mood");
+        tocButton.classList.remove("no-shadow");
       } else if (bottom <= windowHeight * 0.3 && bottom >= 0) {
         body.classList.remove("dark-mood");
+        tocButton.classList.remove("no-shadow");
       } else if (bottom >= windowHeight * 0.3 && bottom < windowHeight) {
         body.classList.add("dark-mood");
+        tocButton.classList.add("no-shadow");
       }
     });
 
