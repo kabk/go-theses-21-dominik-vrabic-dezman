@@ -222,6 +222,7 @@ html {
   align-items: center;
   left: 0.3rem;
   top: 0.3rem;
+  width: max-content;
   height: 2rem;
   background-color: white;
   border-radius: 1rem;
@@ -823,5 +824,9 @@ sup {
     max-width: 100%;
     height: auto;
     position: relative;
+  }
+  .TOC-button {
+    left: 50%;
+    transform: translateX(-50%);
   }
 }

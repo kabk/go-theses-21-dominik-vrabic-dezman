@@ -271,6 +271,7 @@ html {
   align-items: center;
   left: 0.3rem;
   top: 0.3rem;
+  width: max-content;
   height: $flow-space * 2;
   background-color: $clr-highlight;
   border-radius: $flow-space;
@@ -944,5 +945,10 @@ sup {
       height: auto;
       position: relative;
     }
+  }
+
+  .TOC-button {
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
