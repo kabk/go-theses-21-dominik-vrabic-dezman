@@ -234,6 +234,11 @@ html {
   cursor: crosshair;
 }
 
+html::-moz-selection {
+  background: #0719a2;
+  /* WebKit/Blink Browsers */
+}
+
 html::selection {
   background: #0719a2;
   /* WebKit/Blink Browsers */
@@ -241,10 +246,14 @@ html::selection {
 
 body {
   counter-reset: item;
-  hyphens: auto;
+  -webkit-hyphens: auto;
+     -moz-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
   word-wrap: break-word;
   text-rendering: optimizeLegibility;
-  font-kerning: normal;
+  -moz-font-kerning: normal;
+       font-kerning: normal;
   overflow-x: hidden;
   transition: background-color 0.5s ease-in-out;
 }
@@ -316,8 +325,10 @@ sup {
   line-height: 1;
   min-width: 100vw;
   min-height: 100vh;
-  align-items: center;
-  justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
   background: linear-gradient(180deg, #000a30 0%, #000a30 80%, #0719a2 100%);
   background-attachment: fixed;
 }
@@ -355,7 +366,8 @@ sup {
   grid-template-areas: "header-1 header-1 header-1" "header-2 header-2 header-2" "main-left main-middle main-right" "footer-1 footer-1 footer-1" "footer-2 footer-2 footer-2" "footer-3 footer-3 footer-3";
   justify-items: stretch;
   text-align: center;
-  align-items: top;
+  -ms-flex-align: top;
+      align-items: top;
   color: white;
 }
 
@@ -432,10 +444,14 @@ sup {
   padding: 2rem;
   width: 100%;
   height: 100vh;
+  display: -ms-inline-flexbox;
   display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
   background: radial-gradient(circle at 150%, #060961, #000a30 50%, #0719a2 55%, #000a30 75%);
   overflow: hidden;
 }
@@ -489,6 +505,8 @@ sup {
 
 .container--text-flow section {
   transition: opacity 0.5s ease-in-out;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
   margin-top: 3rem;
 }
@@ -586,9 +604,12 @@ sup {
   letter-spacing: 0em;
   width: 1.5em;
   height: 1.5em;
+  display: -ms-inline-flexbox;
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
   border-radius: 50%;
   color: #0719a2;
 }
@@ -609,9 +630,12 @@ sup {
 
 .container--text-flow figure {
   left: 0;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-align: center;
+      align-items: center;
   margin: 5rem 0;
 }
 

@@ -1,1 +1,8 @@
 .DS_Store
+package.json
+node_modules
+package_lock.json
+yarn.lock
+Gruntfile.js
+dvd-style.css
+dvd-style.scss

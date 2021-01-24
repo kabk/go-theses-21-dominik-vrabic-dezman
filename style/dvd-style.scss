@@ -283,6 +283,10 @@ html {
   cursor: crosshair;
 }
 
+html::selection {
+  background: $clr-blue; /* WebKit/Blink Browsers */
+}
+
 body {
   counter-reset: item;
   hyphens: auto;
