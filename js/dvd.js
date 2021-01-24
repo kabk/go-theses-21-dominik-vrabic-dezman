@@ -24,6 +24,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
   });
 
   const image = document.querySelectorAll("figure img");
+  console.log(image);
 
   const darkSelector = document.querySelectorAll(".mode--dark");
 

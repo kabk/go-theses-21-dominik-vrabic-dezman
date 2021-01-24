@@ -283,8 +283,9 @@ html {
   cursor: crosshair;
 }
 
-html::selection {
+::selection {
   background: $clr-blue; /* WebKit/Blink Browsers */
+  color: $clr-highlight;
 }
 
 body {
@@ -607,6 +608,7 @@ sup {
     padding-left: $flow-space;
     font-family: $sans-font;
     margin: $flow-space 0;
+    margin-left: 0.11rem;
     // font-style: italic;
   }
 

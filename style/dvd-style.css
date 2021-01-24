@@ -234,9 +234,10 @@ html {
   cursor: crosshair;
 }
 
-html::selection {
+::selection {
   background: #0719a2;
   /* WebKit/Blink Browsers */
+  color: white;
 }
 
 body {
@@ -537,6 +538,7 @@ sup {
   padding-left: 1rem;
   font-family: "Agipo Regular";
   margin: 1rem 0;
+  margin-left: 0.11rem;
 }
 
 .container--text-flow .section__endnotes {
