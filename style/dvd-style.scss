@@ -463,13 +463,13 @@ sup {
   align-items: center;
   justify-content: center;
 
-  // background-color: $clr-blue;
-  background: linear-gradient(
-    180deg,
-    $clr-blue-dark 0%,
-    $clr-blue-dark 80%,
-    $clr-blue 100%
-  );
+  background-color: $clr-blue;
+  // background: linear-gradient(
+  //   180deg,
+  //   $clr-blue-dark 0%,
+  //   $clr-blue-dark 80%,
+  //   $clr-blue 100%
+  // );
   background-attachment: fixed;
 
   h2 {
