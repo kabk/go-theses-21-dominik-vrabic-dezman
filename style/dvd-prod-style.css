@@ -868,4 +868,8 @@ sup {
     left: 50%;
     transform: translateX(-50%);
   }
+  body.dark-mood .TOC-button {
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
