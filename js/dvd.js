@@ -31,9 +31,13 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
   const thesisTitle = document.querySelector(".thesis-title");
 
-  let windowHeight = window.innerHeight;
+  const windowHeight = window.innerHeight;
 
-  let tocButton = document.querySelector(".TOC-button");
+  const tocButton = document.querySelector(".TOC-button");
+
+  const abstractDistanceFromTop = document
+    .querySelector("#section-abstract")
+    .getBoundingClientRect().top;
 
   tocButton.addEventListener("click", () => {
     body.classList.remove("dark-mood");
@@ -51,6 +55,70 @@ window.addEventListener("DOMContentLoaded", (event) => {
   ];
 
   window.addEventListener("scroll", () => {
+    const currentScroll = document.documentElement.scrollTop;
+
+    let allSectionHeaders = document.querySelectorAll("section");
+
+    const tocOffsetTop =
+      window.pageYOffset +
+      document.querySelector(".table-of-contents").getBoundingClientRect().top;
+
+    for (i = 0; i < allSectionHeaders.length; i++) {
+      let viewportOffset = allSectionHeaders[i].getBoundingClientRect();
+      let top = viewportOffset.top;
+      let bottom = viewportOffset.bottom;
+
+      let elDistanceToTop =
+        window.pageYOffset + allSectionHeaders[i].getBoundingClientRect().top;
+
+      let elDistanceToBottom =
+        window.pageYOffset +
+        allSectionHeaders[i].getBoundingClientRect().bottom;
+
+      if (currentScroll < abstractDistanceFromTop + windowHeight) {
+        console.log(windowHeight);
+        tocButton.classList.add("no-box");
+        body.classList.remove("dark-mood");
+      } else {
+        tocButton.classList.remove("no-box");
+      }
+
+      if (
+        currentScroll > elDistanceToTop &&
+        currentScroll < elDistanceToBottom
+      ) {
+        let scrolltoTop = elDistanceToBottom - currentScroll;
+
+        let distanceToTravel = elDistanceToBottom - elDistanceToTop;
+
+        document.querySelector(".progress-shape").style.width = `${
+          (1 - scrolltoTop / distanceToTravel) * 100
+        }%`;
+
+        document.querySelector(".TOC-button p").innerHTML = allSectionHeaders[
+          i
+        ].querySelector("h2, h3")?.innerHTML;
+      } else if (currentScroll < tocOffsetTop) {
+        document.querySelector(".TOC-button p").innerHTML = "";
+      }
+
+      // if (top > 0 && top < 20) {
+      //   document.querySelector(".TOC-button p").innerHTML = allSectionHeaders[
+      //     i
+      //   ].querySelector("h2, h3")?.innerHTML;
+      // } else if (top < 0 && top > -20) {
+      //   document.querySelector(".TOC-button p").innerHTML = allSectionHeaders[
+      //     i
+      //   ].querySelector("h2, h3")?.innerHTML;
+      // }
+    }
+
+    // console.log(elDistanceToTop);
+
+    // if ((currentScroll) => elDistanceToTop && currentScroll <= bottom) {
+    //   document.querySelector(".TOC-button p").innerHTML = header.innerHTML;
+    // }
+
     darkSelector.forEach((chapter) => {
       let viewportOffset = chapter.getBoundingClientRect();
 

@@ -267,13 +267,56 @@ html {
 
 .TOC-button {
   position: fixed;
+  display: flex;
+  align-items: center;
   left: 0.3rem;
   top: 0.3rem;
-  width: $flow-space * 2;
+  width: max-content;
   height: $flow-space * 2;
-  background-color: $clr-blue;
-  border-radius: 50%;
+  background-color: $clr-highlight;
+  border-radius: $flow-space;
+  padding: 0 $flow-space;
+  color: $clr-blue;
   transition: 0.5s background-color ease-in-out;
+  overflow: hidden;
+  box-shadow: 27px 27px 63px #d7d6d9, -27px -27px 63px #ffffff;
+
+  opacity: 1;
+
+  transition: opacity 0.5s ease-in-out;
+
+  &.no-box {
+    box-shadow: none;
+    opacity: 0;
+  }
+
+  &:hover {
+    background-color: $clr-blue;
+    color: $clr-highlight;
+
+    &::after {
+      content: "TOC";
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      background-color: $clr-blue;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+    }
+  }
+
+  .progress-shape {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: $clr-grey;
+    mix-blend-mode: hard-light;
+  }
 }
 
 html {
