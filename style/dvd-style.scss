@@ -267,8 +267,8 @@ html {
 
 .TOC-button {
   position: fixed;
-  left: 0;
-  top: 0;
+  left: 0.3rem;
+  top: 0.3rem;
   width: $flow-space * 2;
   height: $flow-space * 2;
   background-color: $clr-blue;
@@ -426,7 +426,7 @@ sup {
     .grid-section {
       border: 1px solid $clr-highlight;
       padding: $flow-space;
-      font-size: $extra-small;
+      font-size: $small;
 
       h2,
       h3 {
@@ -501,6 +501,7 @@ sup {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  color: $clr-highlight;
   // change these numbers up and get a cool effect
   background: radial-gradient(
     circle at 150%,
@@ -524,6 +525,10 @@ sup {
 
 .container--text-flow {
   grid-column: 2;
+
+  a:visited {
+    color: $clr-blue;
+  }
 
   h1 {
     font-family: $title-special-font;
@@ -564,7 +569,14 @@ sup {
     margin-top: $flow-space * 3;
 
     &:last-of-type {
-      margin-bottom: $flow-space * 3;
+      margin-bottom: $flow-space * 10;
+      padding-bottom: 2rem;
+      .callout {
+        margin-bottom: $flow-space * 10;
+      }
+      p {
+        text-align: center;
+      }
     }
 
     p,
@@ -743,6 +755,10 @@ sup {
       font-family: $sans-font;
       text-align: center;
       margin-top: $flow-space * 2;
+
+      a {
+        color: $clr-blue;
+      }
     }
   }
 
@@ -781,10 +797,6 @@ sup {
 
   p + p {
     margin-top: $flow-space;
-  }
-
-  a:visited {
-    color: $clr-highlight;
   }
 
   img {

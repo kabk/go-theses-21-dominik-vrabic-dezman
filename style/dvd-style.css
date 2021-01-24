@@ -218,8 +218,8 @@ html {
 
 .TOC-button {
   position: fixed;
-  left: 0;
-  top: 0;
+  left: 0.3rem;
+  top: 0.3rem;
   width: 2rem;
   height: 2rem;
   background-color: #0719a2;
@@ -363,7 +363,7 @@ sup {
 .table-of-contents .grid-toc .grid-section {
   border: 1px solid white;
   padding: 1rem;
-  font-size: 0.7em;
+  font-size: 1em;
 }
 
 .table-of-contents .grid-toc .grid-section h2,
@@ -437,6 +437,7 @@ sup {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  color: white;
   background: radial-gradient(circle at 150%, #060961, #000a30 50%, #0719a2 55%, #000a30 75%);
   overflow: hidden;
 }
@@ -454,6 +455,10 @@ sup {
 
 .container--text-flow {
   grid-column: 2;
+}
+
+.container--text-flow a:visited {
+  color: #0719a2;
 }
 
 .container--text-flow h1 {
@@ -495,7 +500,16 @@ sup {
 }
 
 .container--text-flow section:last-of-type {
-  margin-bottom: 3rem;
+  margin-bottom: 10rem;
+  padding-bottom: 2rem;
+}
+
+.container--text-flow section:last-of-type .callout {
+  margin-bottom: 10rem;
+}
+
+.container--text-flow section:last-of-type p {
+  text-align: center;
 }
 
 .container--text-flow section p,
@@ -654,6 +668,10 @@ sup {
   margin-top: 2rem;
 }
 
+.container--text-flow figure figcaption a {
+  color: #0719a2;
+}
+
 .container--text-flow .callout {
   margin: 1rem 0;
   padding: 2rem;
@@ -689,10 +707,6 @@ sup {
 
 .container--text-flow p + p {
   margin-top: 1rem;
-}
-
-.container--text-flow a:visited {
-  color: white;
 }
 
 @media screen and (orientation: portrait) {

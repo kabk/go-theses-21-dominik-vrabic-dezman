@@ -12,11 +12,11 @@ window.addEventListener("DOMContentLoaded", (event) => {
   // TODO: play around with the numbers to get a good-looking result
   (() => {
     document.querySelector(".slide.cover").style.background = `radial-gradient(
-    circle at ${50 + Math.random() * 100}%,
+    circle at ${20 + Math.random() * 80}%,
     rgb(6, 9, 97),
-    #000a30 ${30 + Math.random() * 70}%,
-    #0719a2 ${10 + Math.random() * 100}%,
-    #000a30 ${10 + Math.random() * 100}%`;
+    #000a30 ${20 + Math.random() * 50}%,
+    #0719a2 ${20 + Math.random() * 50}%,
+    #000a30 ${20 + Math.random() * 50}%`;
   })();
 
   document.querySelector("nav").addEventListener("click", function () {
