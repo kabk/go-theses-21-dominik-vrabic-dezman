@@ -33,7 +33,9 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
   const windowHeight = window.innerHeight;
 
+  // TODO: remove it jittery from the cover page
   const tocButton = document.querySelector(".TOC-button");
+  tocButton.classList.add("no-box");
 
   const abstractDistanceFromTop = document
     .querySelector("#section-abstract")

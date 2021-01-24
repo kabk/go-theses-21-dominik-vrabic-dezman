@@ -307,7 +307,7 @@ body.dark-mood .TOC-button {
   left: 0.3rem;
   top: 0.3rem;
   height: 2rem;
-  background-color: #0719a2;
+  background-color: #000a30;
   color: white;
   overflow: hidden;
   box-shadow: none;
@@ -339,7 +339,7 @@ body.dark-mood .TOC-button:hover::after {
 }
 
 body.dark-mood .TOC-button .progress-shape {
-  background-color: #000a30;
+  background-color: #0719a2;
 }
 
 body.dark-mood .container--text-flow section:not(.mode--dark) {
@@ -514,6 +514,7 @@ sup {
 }
 
 .slide.cover {
+  z-index: 100;
   padding: 2rem;
   width: 100%;
   height: 100vh;
