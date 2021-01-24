@@ -24,7 +24,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
   });
 
   const image = document.querySelectorAll("figure img");
-  console.log(image);
 
   const darkSelector = document.querySelectorAll(".mode--dark");
 
@@ -40,6 +39,17 @@ window.addEventListener("DOMContentLoaded", (event) => {
     body.classList.remove("dark-mood");
   });
 
+  const thesisWords = thesisTitle.innerHTML.split(" ");
+
+  const fontChoices = [
+    "Redaction 10",
+    "Redaction 20",
+    "Redaction 35",
+    "Redaction 50",
+    "Redaction 70",
+    "Redaction 100",
+  ];
+
   window.addEventListener("scroll", () => {
     darkSelector.forEach((chapter) => {
       let viewportOffset = chapter.getBoundingClientRect();
@@ -47,11 +57,18 @@ window.addEventListener("DOMContentLoaded", (event) => {
       let top = viewportOffset.top;
       let bottom = viewportOffset.bottom;
 
-      let thesisWords = thesisTitle.innerHTML.split(" ");
+      if (top % 20 > 1 && top % 20 < 2) {
+        let newWordsHtml = thesisWords.map(
+          (word) =>
+            `<span style="font-family:'${
+              fontChoices[Math.floor(Math.random() * fontChoices.length)]
+            }'">${word}</span>`
+        );
+
+        thesisTitle.innerHTML = newWordsHtml.join(" ");
+      }
 
       // different character style each time
-
-      let newThesisWords = thesisWords.map((word) => {});
 
       if (top <= windowHeight * 0.3 && top > 0) {
         body.classList.add("dark-mood");
