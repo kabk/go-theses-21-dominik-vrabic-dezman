@@ -97,9 +97,12 @@ window.addEventListener("DOMContentLoaded", (event) => {
           (scrolltoTop / distanceToTravel) * 100
         }%`;
 
-        document.querySelector(".TOC-button p").innerHTML = allSectionHeaders[
-          i
-        ].querySelector("h2, h3")?.innerHTML;
+        let currentHeaderHTML = allSectionHeaders[i].querySelector("h2")
+          ?.innerHTML;
+
+        if (currentHeaderHTML != undefined) {
+          document.querySelector(".TOC-button p").innerHTML = currentHeaderHTML;
+        }
       } else if (currentScroll < tocOffsetTop) {
         document.querySelector(".TOC-button p").innerHTML = "";
       }

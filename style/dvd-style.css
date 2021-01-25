@@ -817,6 +817,9 @@ sup {
   html {
     font-size: 20px;
   }
+  .slide.cover h1 {
+    font-size: 3rem;
+  }
   .container--text-flow {
     padding: 0 1rem;
   }
@@ -828,6 +831,12 @@ sup {
   .TOC-button {
     left: 50%;
     transform: translateX(-50%);
+    max-width: calc(100vw - 0.5rem);
+  }
+  .TOC-button p {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
   body.dark-mood .TOC-button {
     left: 50%;
