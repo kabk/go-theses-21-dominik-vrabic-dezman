@@ -280,8 +280,10 @@ html {
   &.hidden {
     transform: translateY(-150%);
     transition: 0.5s transform ease-in;
-    transition-delay: 1.5s;
+    transition-delay: 2s;
   }
+
+  cursor: pointer;
 
   position: relative;
   top: 0;
@@ -294,7 +296,8 @@ html {
   border-radius: $flow-space;
   padding: 0 $flow-space;
   color: $clr-blue;
-  transition: 0.5s background-color ease-in-out 0.5s transform ease-in-out;
+  transition: 0.5s background-color ease-in-out, 0.5s transform ease-in-out,
+    0.5s opacity ease-in-out;
   overflow: hidden;
   text-overflow: ellipsis;
   box-shadow: 10px 10px 13px #d7d6d953, -27px -27px 63px #ffffff74;
@@ -310,34 +313,14 @@ html {
     transition: 0.5s color ease-in-out;
   }
 
-  transition: opacity 0.5s ease-in-out;
-
   &.no-box {
     box-shadow: none;
     opacity: 0;
   }
 
-  // &.no-shadow {
-  //   box-shadow: none;
-  // }
-
-  &:hover {
+  &:active {
     background-color: $clr-blue;
     color: $clr-highlight;
-    width: max-content;
-
-    &::after {
-      content: "TOC";
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: absolute;
-      background-color: $clr-blue;
-      top: 0;
-      right: 0;
-      left: 0;
-      bottom: 0;
-    }
   }
 
   .progress-shape {
@@ -395,7 +378,7 @@ body {
         text-overflow: ellipsis;
       }
 
-      &:hover {
+      &:active {
         background-color: $clr-highlight;
         color: $clr-blue;
         width: max-content;
@@ -950,6 +933,25 @@ sup {
 
   .container--text-flow {
     padding: 0 $flow-space;
+  }
+}
+
+@media (hover: hover) {
+  .TOC-button {
+    &:active {
+      &::before {
+        content: "TOC";
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        background-color: $clr-blue;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+      }
+    }
   }
 }
 

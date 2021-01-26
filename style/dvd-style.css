@@ -226,6 +226,7 @@ html {
 }
 
 .TOC-button {
+  cursor: pointer;
   position: relative;
   top: 0;
   left: 0;
@@ -237,18 +238,17 @@ html {
   border-radius: 1rem;
   padding: 0 1rem;
   color: #0719a2;
-  transition: 0.5s background-color ease-in-out 0.5s transform ease-in-out;
+  transition: 0.5s background-color ease-in-out, 0.5s transform ease-in-out, 0.5s opacity ease-in-out;
   overflow: hidden;
   text-overflow: ellipsis;
   box-shadow: 10px 10px 13px #d7d6d953, -27px -27px 63px #ffffff74;
   opacity: 1;
-  transition: opacity 0.5s ease-in-out;
 }
 
 .TOC-button.hidden {
   transform: translateY(-150%);
   transition: 0.5s transform ease-in;
-  transition-delay: 1.5s;
+  transition-delay: 2s;
 }
 
 .TOC-button p {
@@ -265,23 +265,9 @@ html {
   opacity: 0;
 }
 
-.TOC-button:hover {
+.TOC-button:active {
   background-color: #0719a2;
   color: white;
-  width: max-content;
-}
-
-.TOC-button:hover::after {
-  content: "TOC";
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  background-color: #0719a2;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
 }
 
 .TOC-button .progress-shape {
@@ -338,13 +324,13 @@ body.dark-mood .TOC-button p {
   text-overflow: ellipsis;
 }
 
-body.dark-mood .TOC-button:hover {
+body.dark-mood .TOC-button:active {
   background-color: white;
   color: #0719a2;
   width: max-content;
 }
 
-body.dark-mood .TOC-button:hover::after {
+body.dark-mood .TOC-button:active::after {
   content: "TOC";
   display: flex;
   align-items: center;
@@ -828,6 +814,21 @@ sup {
   }
   .container--text-flow {
     padding: 0 1rem;
+  }
+}
+
+@media (hover: hover) {
+  .TOC-button:active::before {
+    content: "TOC";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    background-color: #0719a2;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
   }
 }
 

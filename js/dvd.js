@@ -9,7 +9,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
     });
   });
 
-  // TODO: play around with the numbers to get a good-looking result
   (() => {
     document.querySelector(".slide.cover").style.background = `radial-gradient(
     circle at ${20 + Math.random() * 80}%,
@@ -18,10 +17,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
     #0719a2 ${20 + Math.random() * 50}%,
     #000a30 ${20 + Math.random() * 50}%`;
   })();
-
-  document.querySelector("nav").addEventListener("click", function () {
-    this.classList.toggle("active");
-  });
 
   const image = document.querySelectorAll("figure img");
 
@@ -35,9 +30,9 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
   const tocButton = document.querySelector(".TOC-button");
 
-  const abstractDistanceFromTop = document
-    .querySelector("#section-abstract")
-    .getBoundingClientRect().top;
+  const abstractDistanceFromTop =
+    window.pageYOffset +
+    document.querySelector("#section-abstract").getBoundingClientRect().top;
 
   tocButton.addEventListener("click", () => {
     body.classList.remove("dark-mood");
@@ -60,6 +55,24 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
   let timeoutActive = 0;
 
+  const simulateClick = (elem) => {
+    // Create our event (with options)
+    const evt = new MouseEvent("click", {
+      bubbles: true,
+      cancelable: true,
+      view: window,
+    });
+
+    elem.dispatchEvent(evt);
+
+    // If cancelled, don't dispatch our event
+    let canceled = !elem.dispatchEvent(evt);
+  };
+
+  tocButton.addEventListener("click", () => {
+    simulateClick(body);
+  });
+
   window.addEventListener("scroll", () => {
     window.clearTimeout(userIsScrolling);
 
@@ -71,26 +84,25 @@ window.addEventListener("DOMContentLoaded", (event) => {
       window.pageYOffset +
       document.querySelector(".table-of-contents").getBoundingClientRect().top;
 
-    // Scrolling direction indicator
     let st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
 
     // Scrolling indicator
     userIsScrolling = setTimeout(() => {
       tocButton.classList.remove("hidden");
-    }, 2000);
+    }, 5000);
 
-    let hiddenTimeout;
+    if (
+      currentScroll > abstractDistanceFromTop - 200 &&
+      currentScroll < abstractDistanceFromTop
+    ) {
+      tocButton.classList.remove("hidden");
+    }
 
+    // Scrolling direction indicator
     if (st > lastScroll) {
       // scrolling down
-      if (
-        currentScroll > abstractDistanceFromTop - 200 &&
-        currentScroll < abstractDistanceFromTop
-      ) {
-        tocButton.classList.remove("hidden");
-      }
 
-      if (currentScroll > abstractDistanceFromTop) {
+      if (currentScroll > abstractDistanceFromTop + 200) {
         tocButton.classList.add("hidden");
       }
     } else {
