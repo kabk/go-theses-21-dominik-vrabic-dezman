@@ -33,9 +33,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
   const windowHeight = window.innerHeight;
 
-  // TODO: remove it jittery from the cover page
   const tocButton = document.querySelector(".TOC-button");
-  tocButton.classList.add("no-box");
 
   const abstractDistanceFromTop = document
     .querySelector("#section-abstract")
@@ -67,6 +65,12 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
     const tocWrapper = document.querySelector(".toc-wrapper");
 
+    const currentScroll = document.documentElement.scrollTop;
+
+    const tocOffsetTop =
+      window.pageYOffset +
+      document.querySelector(".table-of-contents").getBoundingClientRect().top;
+
     // Scrolling direction indicator
     let st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
 
@@ -79,21 +83,31 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
     if (st > lastScroll) {
       // scrolling down
-      tocButton.classList.add("hidden");
+      if (
+        currentScroll > abstractDistanceFromTop - 200 &&
+        currentScroll < abstractDistanceFromTop
+      ) {
+        tocButton.classList.remove("hidden");
+      }
+
+      if (currentScroll > abstractDistanceFromTop) {
+        tocButton.classList.add("hidden");
+      }
     } else {
       // scrolling up
-      tocButton.classList.remove("hidden");
+
+      if (currentScroll > abstractDistanceFromTop) {
+        tocButton.classList.remove("hidden");
+      }
+    }
+
+    if (currentScroll < abstractDistanceFromTop - 200) {
+      tocButton.classList.add("hidden");
     }
 
     lastScroll = st <= 0 ? 0 : st;
 
-    const currentScroll = document.documentElement.scrollTop;
-
     let allSections = document.querySelectorAll("section");
-
-    const tocOffsetTop =
-      window.pageYOffset +
-      document.querySelector(".table-of-contents").getBoundingClientRect().top;
 
     for (i = 0; i < allSections.length; i++) {
       let viewportOffset = allSections[i].getBoundingClientRect();
@@ -106,15 +120,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
       let elDistanceToBottom =
         window.pageYOffset + allSections[i].getBoundingClientRect().bottom;
 
-      if (currentScroll < abstractDistanceFromTop + 20) {
-        tocButton.classList.add("no-box");
-        body.classList.remove("dark-mood");
-      } else {
-        tocButton.classList.remove("no-box");
-      }
-
       // add -5 here for TOC button switch
-
       if (
         currentScroll > elDistanceToTop - 5 &&
         currentScroll < elDistanceToBottom
