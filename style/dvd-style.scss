@@ -544,8 +544,8 @@ sup {
       }
 
       a:hover {
-        background-color: $clr-blue;
-        color: $clr-highlight;
+        background-color: $clr-highlight;
+        color: $clr-blue;
       }
     }
 
@@ -944,8 +944,13 @@ sup {
 
   .slide.cover {
     h1 {
-      font-size: 3rem;
+      font-size: 2.5rem;
+      hyphens: none;
     }
+  }
+
+  .table-of-contents {
+    hyphens: none;
   }
 
   .container--text-flow {

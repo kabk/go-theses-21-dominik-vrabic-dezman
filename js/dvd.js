@@ -59,23 +59,22 @@ window.addEventListener("DOMContentLoaded", (event) => {
   window.addEventListener("scroll", () => {
     const currentScroll = document.documentElement.scrollTop;
 
-    let allSectionHeaders = document.querySelectorAll("section");
+    let allSections = document.querySelectorAll("section");
 
     const tocOffsetTop =
       window.pageYOffset +
       document.querySelector(".table-of-contents").getBoundingClientRect().top;
 
-    for (i = 0; i < allSectionHeaders.length; i++) {
-      let viewportOffset = allSectionHeaders[i].getBoundingClientRect();
+    for (i = 0; i < allSections.length; i++) {
+      let viewportOffset = allSections[i].getBoundingClientRect();
       let top = viewportOffset.top;
       let bottom = viewportOffset.bottom;
 
       let elDistanceToTop =
-        window.pageYOffset + allSectionHeaders[i].getBoundingClientRect().top;
+        window.pageYOffset + allSections[i].getBoundingClientRect().top;
 
       let elDistanceToBottom =
-        window.pageYOffset +
-        allSectionHeaders[i].getBoundingClientRect().bottom;
+        window.pageYOffset + allSections[i].getBoundingClientRect().bottom;
 
       if (currentScroll < abstractDistanceFromTop + windowHeight) {
         console.log(windowHeight);
@@ -85,11 +84,19 @@ window.addEventListener("DOMContentLoaded", (event) => {
         tocButton.classList.remove("no-box");
       }
 
+      // add -5 here for TOC button switch
+
       if (
-        currentScroll > elDistanceToTop &&
+        currentScroll > elDistanceToTop - 5 &&
         currentScroll < elDistanceToBottom
       ) {
         let scrolltoTop = elDistanceToBottom - currentScroll;
+
+        if (allSections[i].classList.contains("mode--dark")) {
+          body.classList.add("dark-mood");
+        } else {
+          body.classList.remove("dark-mood");
+        }
 
         let distanceToTravel = elDistanceToBottom - elDistanceToTop;
 
@@ -97,8 +104,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
           (scrolltoTop / distanceToTravel) * 100
         }%`;
 
-        let currentHeaderHTML = allSectionHeaders[i].querySelector("h2")
-          ?.innerHTML;
+        let currentHeaderHTML = allSections[i].querySelector("h2")?.innerHTML;
 
         if (currentHeaderHTML != undefined) {
           document.querySelector(".TOC-button p").innerHTML = currentHeaderHTML;
@@ -108,11 +114,11 @@ window.addEventListener("DOMContentLoaded", (event) => {
       }
 
       // if (top > 0 && top < 20) {
-      //   document.querySelector(".TOC-button p").innerHTML = allSectionHeaders[
+      //   document.querySelector(".TOC-button p").innerHTML = allSections[
       //     i
       //   ].querySelector("h2, h3")?.innerHTML;
       // } else if (top < 0 && top > -20) {
-      //   document.querySelector(".TOC-button p").innerHTML = allSectionHeaders[
+      //   document.querySelector(".TOC-button p").innerHTML = allSections[
       //     i
       //   ].querySelector("h2, h3")?.innerHTML;
       // }
