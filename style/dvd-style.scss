@@ -279,8 +279,8 @@ html {
 
   &.hidden {
     transform: translateY(-150%);
-    transition: 0.5s transform ease-in;
-    transition-delay: 2s;
+    transition: 0.4s transform ease-in;
+    transition-delay: 1.8s;
   }
 
   cursor: pointer;

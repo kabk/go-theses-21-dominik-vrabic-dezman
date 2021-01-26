@@ -89,7 +89,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     // Scrolling indicator
     userIsScrolling = setTimeout(() => {
       tocButton.classList.remove("hidden");
-    }, 5000);
+    }, 2000);
 
     if (
       currentScroll > abstractDistanceFromTop - 200 &&
