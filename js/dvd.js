@@ -56,7 +56,40 @@ window.addEventListener("DOMContentLoaded", (event) => {
     "Redaction 100",
   ];
 
+  let userIsScrolling;
+
+  let lastScroll = 0;
+
+  let timeoutActive = 0;
+
   window.addEventListener("scroll", () => {
+    window.clearTimeout(userIsScrolling);
+
+    const tocWrapper = document.querySelector(".toc-wrapper");
+
+    // Scrolling direction indicator
+    let st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
+
+    // Scrolling indicator
+    userIsScrolling = setTimeout(() => {
+      console.log("No scrolling for 5 seconds.");
+      console.log("Hidden Removed 1000.");
+      tocButton.classList.remove("hidden");
+    }, 5000);
+
+    let hiddenTimeout;
+
+    if (st > lastScroll) {
+      // scrolling down
+      tocButton.classList.add("hidden");
+    } else {
+      // scrolling up
+      console.log("Hidden added 3000.");
+      tocButton.classList.remove("hidden");
+    }
+
+    lastScroll = st <= 0 ? 0 : st;
+
     const currentScroll = document.documentElement.scrollTop;
 
     let allSections = document.querySelectorAll("section");
@@ -112,23 +145,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
       } else if (currentScroll < tocOffsetTop) {
         document.querySelector(".TOC-button p").innerHTML = "";
       }
-
-      // if (top > 0 && top < 20) {
-      //   document.querySelector(".TOC-button p").innerHTML = allSections[
-      //     i
-      //   ].querySelector("h2, h3")?.innerHTML;
-      // } else if (top < 0 && top > -20) {
-      //   document.querySelector(".TOC-button p").innerHTML = allSections[
-      //     i
-      //   ].querySelector("h2, h3")?.innerHTML;
-      // }
     }
-
-    // console.log(elDistanceToTop);
-
-    // if ((currentScroll) => elDistanceToTop && currentScroll <= bottom) {
-    //   document.querySelector(".TOC-button p").innerHTML = header.innerHTML;
-    // }
 
     darkSelector.forEach((chapter) => {
       let viewportOffset = chapter.getBoundingClientRect();
@@ -148,7 +165,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
       }
 
       // different character style each time
-
       if (top <= windowHeight * 0.3 && top > 0) {
         body.classList.add("dark-mood");
         tocButton.classList.add("no-shadow");
@@ -182,8 +198,4 @@ window.addEventListener("DOMContentLoaded", (event) => {
       }
     });
   });
-
-  // only unblur the images in the viewport
-
-  // add progress indicator for the reading
 });
