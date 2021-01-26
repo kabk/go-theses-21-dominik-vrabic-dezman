@@ -87,9 +87,12 @@ window.addEventListener("DOMContentLoaded", (event) => {
     let st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
 
     // Scrolling indicator
-    userIsScrolling = setTimeout(() => {
-      tocButton.classList.remove("hidden");
-    }, 2000);
+
+    if (currentScroll > abstractDistanceFromTop - 200) {
+      userIsScrolling = setTimeout(() => {
+        tocButton.classList.remove("hidden");
+      }, 2000);
+    }
 
     if (
       currentScroll > abstractDistanceFromTop - 200 &&
