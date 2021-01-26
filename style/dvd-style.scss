@@ -1,16 +1,3 @@
-/* //////////////// ####/
-// TODO:
-- bibliography
-- animation of smooth circles on cover page
-- change background colour between chapters
-- d3 network graph
-- blue dot smaller on scroll; becomes bigger when scrolling stopped for 1-2sec
-- flashing matrix letters underneath
-- max image width 100vw
-
-- fix image stretching
-*/ //////////////// ####/
-
 $extra-small: 0.7em;
 
 $small: 1em;
@@ -625,7 +612,7 @@ sup {
   grid-column: 2;
 
   a:visited {
-    color: $clr-blue;
+    color: inherit;
   }
 
   h1 {

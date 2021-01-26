@@ -137,7 +137,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
       // add -5 here for TOC button switch
       if (
-        currentScroll > elDistanceToTop - 5 &&
+        currentScroll > elDistanceToTop - 200 &&
         currentScroll < elDistanceToBottom
       ) {
         let scrolltoTop = elDistanceToBottom - currentScroll;
