@@ -72,10 +72,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
     // Scrolling indicator
     userIsScrolling = setTimeout(() => {
-      console.log("No scrolling for 5 seconds.");
-      console.log("Hidden Removed 1000.");
       tocButton.classList.remove("hidden");
-    }, 5000);
+    }, 2000);
 
     let hiddenTimeout;
 
@@ -84,7 +82,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
       tocButton.classList.add("hidden");
     } else {
       // scrolling up
-      console.log("Hidden added 3000.");
       tocButton.classList.remove("hidden");
     }
 
@@ -109,8 +106,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
       let elDistanceToBottom =
         window.pageYOffset + allSections[i].getBoundingClientRect().bottom;
 
-      if (currentScroll < abstractDistanceFromTop + windowHeight) {
-        console.log(windowHeight);
+      if (currentScroll < abstractDistanceFromTop + 20) {
         tocButton.classList.add("no-box");
         body.classList.remove("dark-mood");
       } else {
