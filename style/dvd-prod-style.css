@@ -794,6 +794,10 @@ sup {
   margin-top: 0;
 }
 
+.container--text-flow .callout h4 {
+  margin-bottom: 1rem;
+}
+
 .container--text-flow .callout ul {
   margin-top: 1rem;
 }
